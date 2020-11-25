@@ -1,0 +1,416 @@
+/*RESET DEFAULT STYLES*/
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+/******************************************************************************GLOBAL ELEMENTS*/
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+button {
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+	background-color:white;
+	border:none;
+	color:#415463;
+}
+
+header {
+	display: flex;
+	width: 90vw;
+	height: 10vh;
+	margin: auto;
+	align-items: center;
+}
+	.logo{
+		color: #415463;
+	}
+
+ input, button{
+	/*remove all the styles*/
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	border: none;
+}
+.my-projects{
+	width: 90vw;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items:center;
+}
+
+/***********************************************************************************************NAVBAR*/
+	.my-projects-navbar,
+		.nav-link,
+		.search-bar, 
+		.filter-projects, 
+		.addBtn{
+			border-radius: 30px;
+		    border: 3px solid #f4f8f7;
+			padding: 0.5rem;
+			text-decoration: none;
+			font-size: 0.9rem;
+			font-family:'Poppins', sans-serif;
+			color:#415463;
+	}
+	
+	.my-projects-navbar{
+		width:90vw;
+		display: flex;
+		justify-content:space-between;
+		align-items: center;
+	}
+
+		.nav-links{
+			display: flex;
+			list-style: none;
+		}
+
+			.nav-link:hover{
+				background-color:#f4f8f7;
+				color:#415463;
+			}
+		
+		.search-icon{
+			cursor: pointer;
+		}	
+		
+		select{
+			/*REMOVE DEFAULT STYLES*/
+			cursor:pointer;
+			outline: none;
+	        border: none;
+		}	
+		
+		.addBtn{
+			background-color:#415463;
+			color:white;
+			font-family: 'Poppins', sans-serif;
+			margin-right:2rem;
+			border:none;
+		}
+			.addBtn:hover{
+				color:#415463;
+				background-color:white;
+				border-radius: 30px;
+		    	border: 3px solid #f4f8f7;
+			}
+
+
+
+/***********************************************************************************CONTAINER*******************************************/
+	.my-projects-container{
+		margin-top:5px;
+		width: 90vw;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content:flex-start;
+		align-items:flex-start;
+	}
+
+		.project-wrapper{
+			display:flex;
+			flex-direction: row;
+			justify-content:flex-start;
+			align-items:center;
+			width: 40vw;
+			height: 35vh;
+			border-radius: 30px;
+			border: 2px solid #f4f8f7;
+			margin:5px;
+		}
+			.project-img {
+				height: 100%;
+				width: 50%;
+				object-fit: cover;
+				border-radius: 30px;
+				border: 2px solid transparent;
+			}
+
+			.project-info{
+				height: 100%;
+				width: 50%;
+				display: flex;
+				justify-content:space-around;
+				align-items:flex-start;
+				flex-direction: column;
+			}
+				.title, 
+					.social,
+					.category, 
+					.tags, 
+					.description{
+					color:#415463;
+					font-family: 'Poppins', sans-serif;
+				}
+
+				.tags{ 
+					display:flex;
+					flex-wrap:wrap;
+					justify-content:flex-start;
+					align-items:center;
+					list-style: none;
+				}
+				.social{
+					width: 70%;
+					display:flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: 0.9rem;
+					padding: 0.25rem;
+					cursor: pointer;
+				}
+
+				.tag,.category{
+						border-radius: 30px;
+		   				border: 3px solid lightgray;
+		   				background-color: lightgray;
+		   				color: black;
+						text-align: center;
+						padding: 0.25rem;
+						font-size: 0.75rem;
+					}
+					.tag span{
+						display: none;
+					}
+				.category{
+						width:60%;
+						background-color:#415463;
+						color:white;
+						border-color: transparent;
+				}
+				
+				.description{
+					font-size:0.8rem;
+  					width: 100%;
+  					height: 15%;
+  					-webkit-line-clamp: 3;
+  					-webkit-box-orient: vertical;
+  					overflow: hidden;
+  					text-overflow: ellipsis;
+				}
+
+				.more-buttons{
+					min-width: 90%;
+					display: flex;
+					justify-content: space-between;
+					align-items:flex-start;
+					flex-direction: row-reverse;
+		   			cursor:pointer;
+		   			list-style: none;
+				}
+					.edit, .remove{
+						font-family: 'Poppins', sans-serif;
+		   				font-size: 0.75rem;
+		   				text-align:center;
+						padding: 0.4rem;
+						border:2px solid #415463;
+						border-radius: 30px;
+		   				background-color:#415463;
+						color:white;
+					}
+						.remove{
+							color:#ff6963;
+							background-color: white;
+							border:2px solid #ff6963;
+						}
+
+
+
+/******************************************************************** ***************MODAL ADD NEW PROJECT FORM	*/		
+
+.modal-bg, .modal-delete-bg
+	/*.modal-delete-bg*/{
+	position: fixed;
+	width: 100%;
+	height:100vh;
+	top:0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility:0s opacity:0.5s;
+}
+
+.bg-active{
+	visibility: visible;
+	opacity: 1;
+}	
+	.modal{
+		font-family: 'Poppins', sans-serif;
+		position: relative;
+		color: #415463;
+		background-color: white;
+		border-radius: 30px;
+		border: 2px solid #f4f8f7;
+		width: 40%;
+		height: 60%;
+		padding: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+		.modal-inputs{
+			width: 90%;
+			height: 60%;
+			margin:auto;
+			display: flex;
+			justify-content:space-around;
+			align-items:flex-start;
+		}
+			.left-section{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content:space-between;
+				align-items:center;
+			}
+
+			.right-section{
+				display: flex;
+				justify-content:flex-start;
+				align-items:flex-start;
+				flex-direction: column;
+				height: 70%;
+				background-color: #f4f9f8;
+				border-radius: 30px;
+		    	border: 3px solid #f4f8f7;
+			}
+				.modtags{
+					width:70%;
+					background-color: white;
+					border-radius: 30px;
+		    		border: 3px solid #f4f8f7;
+					padding: 0.5rem;
+					margin-top: 1rem;
+					text-decoration: none;
+					text-align: center;
+					font-size: 0.9rem;
+					font-family:'Poppins', sans-serif;
+					color:#415463;
+				}
+					.addTagBtn{
+						background-color:#415463;
+						color:white;
+						font-size: 1rem;
+						font-weight: bold;
+						text-align: center;
+						margin-top: 1.5rem;
+						width: 1.5rem;
+						height: 1.5rem;
+						border-radius:50%;
+					}
+						.addTagBtn:hover{
+							color:#415463;
+							background-color:white;
+							
+						}
+					.tag-list{
+						display: flex;
+						flex-wrap: wrap;
+					}
+
+					.tag-container{
+						background-color: white;
+						font-size: 1rem;
+						border-radius: 30px;
+		    			border: 1px solid lightgray;
+		    			list-style: none;
+		    			padding: 0.25rem;
+		    			display: flex;
+					}	
+
+					.deleteTagBtn{
+						margin-left: 0.25rem;
+						font-weight: bold;
+						cursor: pointer;
+					}
+		
+		.modal h4{
+			border-radius: 5px;
+			border-bottom:3px solid #abb6bc;
+		}	
+		.modtitle, 
+			.moddescription, 
+			.thumb, 
+			.modal-categories, 
+			.submitbtn{
+			width: 70%;
+			background-color: #f4f9f8;
+			border-radius: 30px;
+		    border: 3px solid #f4f8f7;
+			padding: 0.5rem;
+			text-decoration: none;
+			font-size: 0.9rem;
+			font-family:'Poppins', sans-serif;
+			color:#415463;
+		}
+
+		.submitbtn{
+			width: 25%;
+			color:white;
+			background-color: #415463;
+		    padding: 1rem;
+		}
+			.submitbtn:hover{
+			background-color:white;
+			color: #415463;
+			}
+
+		.modal-close{
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-weight: bold;
+			cursor:pointer;
+		}
+
+/*---------------------------------------------------------------------MODAL DELETE FORM---------------------------------------------	*/	
+.modal-delete{
+		font-family: 'Poppins', sans-serif;
+		position: relative;
+		color:#415463;
+		background-color: white;
+		border-radius: 30px;
+		border:3px solid #415463;
+		height:30vh;
+		padding: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content:space-around;
+		align-items: center;
+}
+	.modal-delete h4{
+		color: #ff6963;
+	}
+
+.answers{
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
+}
+	.yes, .modal-delete-close{
+		color:#ff6963;
+		font-size: 0.75rem;
+		width: 50%;
+		padding: 0.75rem;
+		border-radius: 30px;
+		border:3px solid #ff6963;
+	}
+	.modal-delete-close{
+		color:#415463;
+		border-color:#415463;
+	}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+		<link rel="stylesheet" href="./style.css" />
+		<title>ART PROJECT</title>
+	</head>
+
+	<body>
+		
+		<header>
+			<div class="logo">
+				 <h2>Artific</h2>
+			</div>
+		</header>
+		
+		<main>
+			<section class ="my-projects">
+<!-- --------------------------------------------------------------------------------NAVBAR-------------------------------------- -->
+				<div class="my-projects-navbar">
+					<nav>
+						<ul class="nav-links">
+							<li><a class="nav-link" href="#">MyProjects</a></li>
+							<li><a class="nav-link" href="#">Favourites</a></li>
+						</ul>	
+					</nav>
+					<div class = "search-bar">
+						 <input type="text" class="search" placeholder="Search...">
+						 <span class = "search-icon"><i class="fas fa-search"></i></span>
+					</div>
+					<div class ="filters">	    
+						<select name='categories' class= 'filter-projects'>
+							<option value="all"> All Projects </option>
+							<option value="completed"> Street Art </option>
+							<option value="uncompleted"> Digital Art </option>
+						</select>
+				    </div>
+				    <button type="button" class="addBtn">Add new +</button>
+				</div>    
+
+				<div class = "my-projects-container">
+
+<!-- ---------------------------------------------------------FIRST PROJECT CREATED MANUALLY------------------------------------------- -->
+					<div class="project-wrapper">
+						<img class="project-img" src="./img/proj1.jpg">
+						<div class='project-info'>
+							<h3 class ="title">Project Title</h3>
+							<span class="social">
+								<span><i class="fas fa-heart"></i>Favourites</span>
+								<span><i class="fas fa-eye"></i>Views</span>
+							</span>
+							<a class="category">Category</a>
+							<ul class="tags">
+								<li class="tag">TagName</li>
+								<li class="tag">TagName</li>
+								<li class="tag">TagName</li>
+							</ul>
+							<p class = "description">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							</p>
+							<ul class = 'more-buttons'>
+								<li class = 'edit'> <a> Edit </a><span> <i class="fas fa-edit"></i> </span></li>
+								<li class = 'remove'> <a> Delete </a><span><i class="fas fa-trash"></i></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+<!-- 				----------------------------------------MODAL ADD NEW PROJECT FORM---------------------------------------------------------- -->
+				<div class = "modal-bg">
+					<div class="modal">
+						<h4>Add a new project</h4>
+						<div class = "modal-inputs">
+							<div class = "left-section">
+								<input type="text" class="modtitle" name="title" placeholder="Project Title">
+								<input type="text" class="moddescription" name="description" placeholder="Project Description">
+								<input type="text" class="thumb" name="thumbnail" placeholder="Image URL">
+								<select class="modal-categories" name="Category">
+								    <option value="all">All Categories</option>
+								    <option value="street-art">Street Art</option>
+								    <option value="photography">Photography</option>
+								</select>
+						 	</div>
+							<div class ='right-section'>
+								<div class tags-input>
+									<input type = "text" class = "modtags" name="tags" placeholder="Type a tag">
+									<button type="button" class="addTagBtn">+</button>
+								</div>
+								<div class = 'tags-result'>
+									<ul class = "tag-list"></ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="submitbtn">Submit</button>
+						<span class = "modal-close">X</span>
+					</div>
+				</div>
+
+<!-- 				---------------------------------------------------MODAL DELETE MESSAGE----------------------------------------------------------------- -->
+				<div class = "modal-delete-bg">
+					<div class = 'modal-delete'>
+						<h4>DELETE PROJECT</h4>
+						<p>Are you sure you want to delete this project?</p>
+						<div class = "answers">
+							<button class="yes">YES</button>
+							<button class="modal-delete-close">NO</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	
+	<script src="app.js"></script>
+	</body>
+
+</html>
